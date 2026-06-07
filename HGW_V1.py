@@ -102,7 +102,7 @@ if uploaded_file is not None:
                 optimal_params = result.x
                 predicted_max_stiffness = -result.fun  # 다시 양수 부호로 변환
 
-            # [6] 최적 조건 도출 및 시각화 리포트 화면 구성 (풍선 효과 삭제)
+            # [6] 최적 조건 도출 및 시각화 리포트 화면 구성
             st.markdown("### 예측된 최대 마진 결과")
             # 스코어 카드로 시인성 확보
             st.metric(label="AI 모델 기준 최적 예측 최대 강성", value=f"{predicted_max_stiffness:.3f}")
@@ -122,4 +122,8 @@ if uploaded_file is not None:
             st.caption(f"제안된 최적화 결과는 데이터 내 한계 범위 안에서 도출되었습니다. (온도: {X['가열온도'].min():.1f}~{X['가열온도'].max():.1f} / 냉각: {X['냉각'].min():.1f}~{X['냉각'].max():.1f})")
 
     except Exception as e:
-        st.error(f"
+        # 하단 에러 메시지 한 줄로 완전 정렬하여 닫히지 않는 괄호 에러 방지
+        st.error(f"시스템 연산 실행 중 예상치 못한 오류가 발생했습니다: {str(e)}")
+else:
+    # 최초 진입 시 가이드 문구 출력
+    st.warning("왼쪽 사이드바 제어 패널에서 'HGW_DATA.xlsx' 가동 데이터를 먼저 드래그 앤 드롭으로 업로드해 주세요.")
