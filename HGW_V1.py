@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 from scipy.optimize import differential_evolution
 
 # 🔹 1️⃣ 엑셀 데이터 로드
-file_path = "data.xlsx"  # 파일 경로를 적절히 수정하세요
+file_path = "HGW_DATA.xlsx"  # 파일 경로를 적절히 수정하세요
 df = pd.read_excel(file_path, header=0)  # 필요 시 header=1로 변경
 
 df.columns = df.columns.str.strip()  # 공백 제거
