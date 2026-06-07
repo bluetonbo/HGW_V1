@@ -107,15 +107,4 @@ if uploaded_file is not None:
             
             st.markdown("### 🎯 예측된 최대 마진 결과")
             # 스코어 카드로 시인성 확보
-            st.metric(label="🏆 AI 모델 기준 최적 예측 최대 강성", value=f"{predicted_max_stiffness:.3f}")
-            
-            st.markdown("### 🛠️ 최대 강성을 위한 최적 공정 제어 매개변수")
-            
-            # 레이아웃을 바둑판 배열로 나누어 가독성 상향
-            col_left, col_right = st.columns(2)
-            with col_left:
-                st.info(f"**🔥 가열온도 제어값**: {optimal_params[0]:.2f}")
-                st.info(f"**❄️ 냉각 속도 제어값**: {optimal_params[1]:.2f}")
-            with col_right:
-                st.info(f"**📏 공정 거리 제어값**: {optimal_params[2]:.2f}")
-                st.info(f"**📉 라이너 두께 제어값**: {
+            st.metric(label="🏆 AI 모델 기준 최적 예측 최대 강성", value=f"{predicted_max_
